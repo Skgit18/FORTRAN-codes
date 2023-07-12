@@ -1,4 +1,4 @@
-program vertivel
+ivelprogram vertivel
 
 integer:: i,j,k
 real::p(11), u(21,16,11),v(21,16,11),dudx(21,16,11),dvdy(21,16,11)
