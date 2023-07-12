@@ -76,19 +76,3 @@ close(30)
 close(20)
 close(10)
 end program vertivel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
