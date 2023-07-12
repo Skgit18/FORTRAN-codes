@@ -5,6 +5,8 @@ Each program is related to core concepts of Dynamical Meteorology.
 1. Vertical Velocity => Computation of vertical velocity using the equation of continuity
 
 2. cres1.f90 => Objective analysis of geopotential height by Cressman method
+
+3. divort.f90 => Computation of divergence and vorticity using finite difference technique
    
 4. geos.f90 => Computation of geostrophic wind and geostrophic vorticity using geopotential height
 
