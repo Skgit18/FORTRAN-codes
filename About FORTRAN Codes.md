@@ -1,6 +1,6 @@
 # FORTRAN-codes
 This repository has FORTRAN programs written during my Master's coursework.
-Each program is related to core concepts of Dynamical Meteorology.
+Each program focuses on basic concepts from Dynamic Meteorology.
 
 1. divort.f90 => Computation of divergence and vorticity using finite difference technique
 
