@@ -54,7 +54,7 @@ Description of each program.
    ```
    Where
    ```math
-      〈 〉=(p-p_s)∫_(p_s)^p ()
+      〈 〉=(p-p_s)∫_(p_s)^p▒()
    ```
    is pressure weighted vertical average.
    
