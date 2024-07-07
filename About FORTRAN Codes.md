@@ -24,15 +24,19 @@ Description of each program.
    Compute divergence and vorticity using finite difference scheme from u and v grid point data given. Print estimated values of divergence and vorticity at the 5th level.
 
    Horizontal divergence is given by
-      D=\ \frac{\partial u}{\partial x}+\ \frac{\partial v}{\partial y}
-
+   ```math
+   D=\ \frac{\partial u}{\partial x}+\ \frac{\partial v}{\partial y}$
+   ```
    Vorticity is given by
-      \zeta=\ \frac{\partial v}{\partial x}-\ \frac{\partial u}{\partial y}
-
+   ```math  
+   \zeta=\ \frac{\partial v}{\partial x}-\ \frac{\partial u}{\partial y}
+   ```
    With u, v at grid points, divergence, and vorticity can be estimated.
    The estimation is carried out by finite difference approximations.
    The divergence at point (x, y) can be estimated as follows,
+   ```math
       \frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}=\frac{u\left(x+d\right)-u(x-d)}{2d}+\ \frac{v\left(y+d\right)-v(y-d)}{2d}
+   ```
 
 2. vertivel.f90
 
