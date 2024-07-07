@@ -47,11 +47,18 @@ Description of each program.
    The continuity equation is given as
    ```math
       \frac{\partial w}{\partial p}=-(\ \frac{\partial u}{\partial x}+\frac{\partial v}{\partial x})
-   This can also be written as
-      w\left(p\right)=w\left(p_s\right)+(p_s-p)(∂u∂x+∂v∂x)
-   Where  =(p-ps)psp() is pressure weighted vertical average.
    ```
-3. cressman.f90
+   This can also be written as
+   ```math
+      w\left(p\right)=w\left(p_s\right)+(p_s-p)(∂u∂x+∂v∂x)
+   ```
+   Where
+   ```math
+      〈 〉=(p-p_s)∫_(p_s)^p▒〖()〗
+   ```
+   is pressure weighted vertical average.
+   
+4. cressman.f90
 
    Starting with a reasonable first guess and available data at observation points, the method proceeds by scanning and correcting the field several times and applying some smoothing between correction steps.
    If we denote a previous estimate of the model state provided by climatology or a previous forecast by xb, and a set of i = 1,2, 3…, n observations of the same parameter by y(i),
@@ -69,7 +76,7 @@ Description of each program.
    In the successive corrections method, a pass is made through every grid point, updating the variable at each grid point based on the first guess field and the observations surrounding that grid point. 
    After one pass is made through the domain, another pass is made, again modifying the field at each grid point based on the observations surrounding the grid point.
 
-4. rk4.f90
+5. rk4.f90
 
    Assuming that warming of air temperature at all grid points can be represented using the equation
    ```math
@@ -98,9 +105,9 @@ Description of each program.
       k3= f(x1 + h/2 , y1 + k2h/2)
       k4= f(x1 + h, y1 + k3h)
    ```
-Knowing the value of y = yi at xi, we can find the value of y = yi+1 at x = xi+1 using the above two equations.
+   Knowing the value of y = yi at xi, we can find the value of y = yi+1 at x = xi+1 using the above two equations.
 
-5. sf.f90
+6. sf.f90
 
    Calculate stream function using relaxation method.
    Use δy = 277.5 km; δx = δy cos φ, Ω = 7.292*10-4 s-1, g = 9.81 m/s
@@ -142,7 +149,7 @@ Knowing the value of y = yi at xi, we can find the value of y = yi+1 at x = xi+1
          ```math
             Ri,j = psi(i+1,j) + psi(i-1,j) + psi(i, j+1) + psi(i, j-1) – 4(psi(i, j) + Ri,j /4) − psi(i,j)δx2δy2 = 0
          ```
-      3) In the next iteration, the initial guess  (i, j) is changed to  (i, j) + ¼Ri, j
+      3) In the next iteration, the initial guess chi (i, j) is changed to chi (i, j) + 1/4Ri, j
       4) This process is repeated at each grid point till we get the desired accuracy.
 
 7. velout.f90
@@ -169,17 +176,17 @@ Knowing the value of y = yi at xi, we can find the value of y = yi+1 at x = xi+1
       1) An initial guess of chi at all the grid points is taken as zero.
       2) Compute the residual
       ```math
-         Ri,j = chi (i+1,j) + chi (i-1,j) + chi (i, j+1) + chi (i, j-1) - 4chi (i, j) - D (i,j)δx2δy2
+         Ri,j = chi(i+1,j) + chi (i-1,j) + chi (i, j+1) + chi (i, j-1) - 4chi (i, j) - D (i,j)δx2δy2
       ```
       The same equation can be written as
       ```math
-         Ri,j = chi (i+1,j) + chi (i-1,j) + chi (i, j+1) + chi (i, j-1) – 4(chi (i, j) + Ri,j /4) − D (i,j)δx2δy2 = 0
+         Ri,j = chi(i+1,j) + chi (i-1,j) + chi (i, j+1) + chi (i, j-1) – 4(chi (i, j) + Ri,j /4) − D (i,j)δx2δy2 = 0
       ```
       3) In the next iteration, the initial guess chi (i, j) is changed to chi (i, j) + ¼Ri, j
       4) This process is repeated at each grid point till we get the desired accuracy.
 
 
-9. geos.f90
+8. geos.f90
 
    The grid resolution is 2.5o x2.5o. 
    Calculate geostrophic wind components and vorticity.
