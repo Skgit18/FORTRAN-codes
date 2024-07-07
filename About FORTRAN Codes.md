@@ -87,7 +87,10 @@ Description of each program.
    ```math
    yi+1 = yi + (k1 + k2 + k3 + k4) *h/6
    ```
-      where h is given by h = xi+1 -xi
+      where h is given by
+   ```math
+   h = xi+1 -xi
+   ```
       and the coefficients k1, k2, k3 and k4 are given by
    ```math
       k1 = f(x1,y1)
@@ -108,18 +111,22 @@ Knowing the value of y = yi at xi, we can find the value of y = yi+1 at x = xi+1
    ``` 
     Function chi (x, y) can be expressed as
    ```math
-                                        u = - dpsi/dy   v =   dpsi/dx
+   u = - dpsi/dy
+   v = dpsi/dx
    ```   
    This function psi is called the Stream function.
    Now the vorticity,
    ```math
-   eta    = (dv/dx - du/dy) = d2psi / dx2 + d2psi / dy2
+   eta = (dv/dx - du/dy) = d2psi / dx2 + d2psi / dy2
    ```
-   Therefore,  eta =  delta 2 psi                                                
-    Thus, vorticity for non-divergent flow is the two-dimensional Laplacian of the Stream function.
-    Where vorticity can be expressed as
+   Therefore,
    ```math
-                                     eta  = (g / f) delta p 2 z
+   eta =  delta 2 psi                                                
+   ```
+   Thus, vorticity for non-divergent flow is the two-dimensional Laplacian of the Stream function.
+   Where vorticity can be expressed as
+   ```math
+   eta  = (g / f) delta p 2 z
    ```
    Stream function can be estimated using finite differences and relaxation methods.
    In the Relaxation method, differential equations are solved by successive approximation and then iteration until a solution is found.
@@ -138,18 +145,18 @@ Knowing the value of y = yi at xi, we can find the value of y = yi+1 at x = xi+1
       3) In the next iteration, the initial guess  (i, j) is changed to  (i, j) + ¼Ri, j
       4) This process is repeated at each grid point till we get the desired accuracy.
 
-6. velout.f90
+7. velout.f90
 
    Calculate velocity potential using the relaxation method.
    Use δy = 222 km; δx = δy cos φ, Ω = 7.292*10-4 s-1, g = 9.81 m/s
 
-   If a particular fluid motion is irrotational, then it is possible to represent the velocity field of flow in terms of a scalar function called velocity potential (normally denoted by χ).
+   If a particular fluid motion is irrotational, it is possible to represent the velocity field of flow in terms of a scalar function called velocity potential (normally denoted by χ).
    ```math
       V =  delta(chi) i.e., u =  d(chi)/dx, v =  d(chi)/dy
    ```
    Therefore,  
    ```math
-   eta  = (dv/dx - du/dy) =   d 2 chi/dxdy - d 2 chi /dxdy = 0
+     eta = (dv/dx - du/dy) = d 2 chi/dxdy - d 2 chi /dxdy = 0
    ```
    The Divergence, in this case, is 
    ```math
@@ -161,14 +168,18 @@ Knowing the value of y = yi at xi, we can find the value of y = yi+1 at x = xi+1
 
       1) An initial guess of chi at all the grid points is taken as zero.
       2) Compute the residual
+      ```math
          Ri,j = chi (i+1,j) + chi (i-1,j) + chi (i, j+1) + chi (i, j-1) - 4chi (i, j) - D (i,j)δx2δy2
+      ```
       The same equation can be written as
+      ```math
          Ri,j = chi (i+1,j) + chi (i-1,j) + chi (i, j+1) + chi (i, j-1) – 4(chi (i, j) + Ri,j /4) − D (i,j)δx2δy2 = 0
+      ```
       3) In the next iteration, the initial guess chi (i, j) is changed to chi (i, j) + ¼Ri, j
       4) This process is repeated at each grid point till we get the desired accuracy.
 
 
-7. geos.f90
+9. geos.f90
 
    The grid resolution is 2.5o x2.5o. 
    Calculate geostrophic wind components and vorticity.
@@ -177,12 +188,13 @@ Knowing the value of y = yi at xi, we can find the value of y = yi+1 at x = xi+1
    Geostrophic winds result from a balance between pressure gradient force and Coriolis force.
    The zonal and meridional components of geostrophic wind can be calculated from geopotential height as follows,
    ```math
-   u_g=\ -\frac{g}{f}(\frac{\partial z}{\partial y})
-
-   v_g=\ \frac{g}{f}(\frac{\partial z}{\partial x})
+      u_g=\ -\frac{g}{f}(\frac{\partial z}{\partial y})
+   ```
+   ```math
+      v_g=\ \frac{g}{f}(\frac{\partial z}{\partial x})
    ```
    Geostrophic vorticity can be written as,
-   ```
+   ```math
       \zeta_g=\ \frac{\partial v_g}{\partial x}-\ \frac{\partial u_g}{\partial y}
    ```
       ug, vg, and ζg can be calculated following a finite differencing scheme.
