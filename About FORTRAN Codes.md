@@ -20,7 +20,7 @@ Each program focuses on basic concepts from Dynamic Meteorology.
 Description of each program.
 
 
-**1. Computation of divergence and vorticity using finite difference technique (divort.f90)**
+## **1. Computation of divergence and vorticity using finite difference technique (divort.f90)**
 
 Compute divergence and vorticity using finite difference scheme from u and v grid point data given. Print estimated values of divergence and vorticity at the 5th level.
 
@@ -40,7 +40,7 @@ $\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = \frac{u(x+d) - 
 
 
 
-**2. Computation of vertical velocity using the equation of continuity (vertivel.f90)**
+## **2. Computation of vertical velocity using the equation of continuity (vertivel.f90)**
 
 Compute divergence and vorticity using finite difference scheme from u and v grid point data given and then compute vertical velocity from divergence using the continuity equation. Vertical velocity is computed using both uncorrected and bias-corrected divergence. Print estimated values of vertical velocity at the 5th level.
 
@@ -57,7 +57,7 @@ Where, $\langle \rangle = (p - p_s) \int_{a}^{b} (\ )$ is pressure-weighted vert
 
 
 
-**3. Objective analysis of geopotential height by Cressman method (cressman.f90)**
+## **3. Objective analysis of geopotential height by Cressman method (cressman.f90)**
 
 Starting with a reasonable first guess and available data at observation points, the method proceeds by scanning and correcting the field several times and applying some smoothing between correction steps. If we denote a previous estimate of the model state provided by climatology or a previous forecast by xb, and a set of i = 1,2, 3…, n observations of the same parameter by y(I), a simple Cressman analysis is provided by the model state xa defined at each grid point j, according to the following update equation:
 
@@ -73,7 +73,7 @@ In the successive corrections method, a pass is made through every grid point, u
 
 
 
-**4. Solution of the ordinary differential equation using Fourth order Runge – Kutta method (rk4.f90)**
+## **4. Solution of the ordinary differential equation using Fourth order Runge – Kutta method (rk4.f90)**
 
 Assuming that warming of air temperature at all grid points can be represented using the equation
 
@@ -107,7 +107,7 @@ Knowing the value of y = yi at xi, we can find the value of y = yi+1 at x = xi+1
 
 
 
-**5. Computation of stream function from geopotential field using Relaxation method Stream Function (sf.f90)**
+## **5. Computation of stream function from geopotential field using Relaxation method Stream Function (sf.f90)**
 
 Calculate stream function using relaxation method.
 $\delta y = 277.5 \, \text{km}; \quad \delta x = \delta y \cos \phi; \quad \Omega = 7.292 \times 10^{-4} \, \text{s}^{-1}; \quad g = 9.81 \, \text{m/s}^2.$
@@ -153,7 +153,7 @@ $R_{i,j} = \psi_{i+1,j} + \psi_{i-1,j} + \psi_{i,j+1} + \psi_{i,j-1} - 4\left( \
 
 
 
-**6. Computation of Velocity potential using observed or reanalysis wind data (velout.f90)**
+## **6. Computation of Velocity potential using observed or reanalysis wind data (velout.f90)**
 
 Calculate velocity potential using the relaxation method.
 $\delta y = 222 \ \text{km}, \quad \delta x = \delta y \cos \phi, \quad \Omega = 7.292 \times 10^{-4} \ \text{s}^{-1}, \quad g = 9.81 \ \text{m/s}^2$
@@ -182,7 +182,7 @@ $R_{i,j} = \chi_{i+1,j} + \chi_{i-1,j} + \chi_{i,j+1} + \chi_{i,j-1} - 4\left( \
 
 
 
-**7. Computation of geostrophic wind and geostrophic vorticity using geopotential height (geos.f90)**
+## **7. Computation of geostrophic wind and geostrophic vorticity using geopotential height (geos.f90)**
 
 The grid resolution is 2.5o x2.5o. 
 Calculate geostrophic wind components and vorticity.
