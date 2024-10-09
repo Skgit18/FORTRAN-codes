@@ -21,17 +21,15 @@ do k=1,13
 	  y(i,j,k)=y(i,j,k)*y(i,j,k)*0
       y(i,j,k+1)=y(i,j,k+1)*y(i,j,k+1)*0
       else 
-
-s1(i,j,k)=f(y(i,j,k))
-s2(i,j,k)=f(y(i,j,k)+(s1(i,j,k)*0.5*h))
-s3(i,j,k)=f(y(i,j,k)+(s2(i,j,k)*0.5*h))
-s4(i,j,k)=f(y(i,j,k)+(s3(i,j,k)*h))
-y(i,j,k+1)=y(i,j,k)+(s1(i,j,k)+2*s2(i,j,k)+2*s3(i,j,k)+s4(i,j,k))*h/6
-y(i,j,k)=y(i,j,k+1)
-
-endif
-end do
-end do
+      s1(i,j,k)=f(y(i,j,k))
+      s2(i,j,k)=f(y(i,j,k)+(s1(i,j,k)*0.5*h))
+      s3(i,j,k)=f(y(i,j,k)+(s2(i,j,k)*0.5*h))
+      s4(i,j,k)=f(y(i,j,k)+(s3(i,j,k)*h))
+      y(i,j,k+1)=y(i,j,k)+(s1(i,j,k)+2*s2(i,j,k)+2*s3(i,j,k)+s4(i,j,k))*h/6
+      y(i,j,k)=y(i,j,k+1)
+      endif
+   end do
+ end do
 end do
 
 do i=1,32
