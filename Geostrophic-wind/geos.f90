@@ -35,6 +35,6 @@ do i=2,14
   write(16,*)(e(j,i,3),j=2,16)
   write(17,*)(ug(j,i,3),j=2,16)
   write(18,*)(vg(j,i,3),j=2,16)
-  end do
+end do
 
 end program geos
